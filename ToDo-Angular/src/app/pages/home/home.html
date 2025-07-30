@@ -1,0 +1,17 @@
+<div class="min-h-screen bg-gray-200 text-gray-800 font-sans p-4">
+  <header class="mb-6">
+    <h1 class="text-3xl font-semibold text-center mb-2">To-Do List</h1>
+    <nav class="text-center">
+      <a [routerLink]="['/sobre']" class="text-blue-600 hover:underline text-sm">
+        <span>About us</span>
+      </a>
+    </nav>
+  </header>
+
+  <hr class="border-gray-300 mb-6">
+
+  <section class="max-w-xl mx-auto bg-white shadow rounded-xl p-6 space-y-4">
+    <app-todo-input></app-todo-input>
+    <app-todo-list></app-todo-list>
+  </section>
+</div>

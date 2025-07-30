@@ -1,0 +1,28 @@
+<div class="max-w-xl mx-auto bg-white p-6 rounded-xl shadow space-y-6 text-gray-800" >
+  <ul id="task-List" class="space-y-2">
+    <app-todo-item></app-todo-item>
+  </ul>
+
+  
+  <ul id="task-completed" class="mt-4">
+    <p class="text-sm font-medium text-gray-600 mb-1">Completed List</p>
+    <!-- Tarefas completxadas aparecerão aqui -->
+  </ul>
+
+
+   <!-- Buttons de Complete, Remove e para contar Tasks" -->
+  <div class="flex flex-wrap gap-2 pt-2">
+    <button id="task-Done" (click)="completeTask()"
+      class="bg-blue-600 hover:bg-blue-800 text-white px-4 py-2 rounded text-sm transition">
+      Done!
+    </button>
+    <button id="task-Remove" (click)="removeTask()"
+      class="bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded text-sm transition" >
+      Remove!
+    </button>
+    <button id="task-Quantity" (click)="countTask()"
+      class="bg-gray-600 hover:bg-gray-800 text-white px-4 py-2 rounded text-sm transition">
+      Task Quantity
+    </button>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="min-h-screen bg-gray-100 text-gray-800 font-sans p-4">
+  <header class="mb-6">
+    <h1 class="text-3xl font-semibold text-center mb-2">About the To-Do</h1>
+    <nav class="text-center">
+      <a [routerLink]="['']" class="text-blue-600 hover:underline text-sm">
+        <span>Home</span>
+      </a>
+    </nav>
+  </header>
+
+  <hr class="border-gray-300 mb-6">
+
+  <main class="max-w-3xl mx-auto bg-white shadow rounded-xl p-6 space-y-6">
+    <section>
+      <h3 class="text-xl font-semibold mb-2">O que esta To-Do faz?</h3>
+      <p class="text-sm leading-relaxed">
+        A app permite ao utilizador anotar tarefas para não se esquecer do que tem para fazer.
+      </p>
+      <ul class="list-disc list-inside text-sm mt-2 space-y-1">
+        <li>Adicionar tarefas</li>
+        <li>Marcar tarefas como concluídas</li>
+        <li>Remover tarefas através de um seletor</li>
+        <li>Ver quantas tarefas estão pendentes</li>
+        <li>Ver quais tarefas foram concluidas</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="text-xl font-semibold mb-2">Como a app foi feita?</h3>
+      <p class="text-sm leading-relaxed mb-2">
+        A app foi construída com Angular, utilizando a fragmentação de blocos de código em componentes separados.
+        Isto permite uma melhor organização e reutilização do mesmo.
+      </p>
+      <p class="text-sm leading-relaxed">
+        A app encontra-se dividida em duas páginas: <strong>Home</strong> e <strong>Sobre</strong> (a que se encontra agora).
+        <br><br>
+        Na página <strong>Home</strong>, são utilizados três componentes:
+      </p>
+      <ul class="list-disc list-inside text-sm mt-2 space-y-1">
+        <li><strong>Input</strong> - Cria um text input e dois botões: Submit e Escolher ficheiro.</li>
+        <li><strong>List</strong> - Onde as tarefas estão agrupadas. Mostra tambem as tarefas concluidas e cria três botões; "Done!", "Remove!" e "Task Quantity" </li>
+        <li><strong>Item</strong> - Componente que renderiza uma tarefa individualmente.</li>
+        <br>
+      </ul>
+      <p class="text-sm leading-relaxed">
+        Na página <strong>Sobre</strong>, é utilizado meramente HTML e TailwindCSS para decorar a pagina de modo a se parecer Moderno e legivel.
+      </p>
+      <ul class="list-disc list-inside text-sm mt-2 space-y-1">
+      </ul>
+      <p class="text-sm leading-relaxed">
+        Os <strong>Serviços</strong> usados neste projeto servem maioritariamente como um lugar para guardar funções, de modo a que o back-end dos componentes fique mais legível e organizado.
+      </p>
+    </section>
+  </main>
+</div>
