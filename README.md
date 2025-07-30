@@ -1,4 +1,4 @@
-Internship Projects
+# Internship Projects
 
 A collection of projects developed during my internship.  
 Currently working with:
@@ -9,13 +9,25 @@ Currently working with:
 
 ---
 
-Projects so far:
-- Simple To-do list with: - Task submit
-                          - Task done
-                          - Task remove
-                          - Task quantity
-                          - And ability to check tasks completed
+## ✅ Projects so far
 
-Next project:
-- Kanbam To-do List with drag and drop and local storage features
-                      
+### 📝 Simple To-Do List
+
+Features:
+
+- Task submission  
+- Mark task as done  
+- Remove task  
+- Task counter  
+- Visual check of completed tasks
+
+---
+
+## 🚧 Next Project
+
+### 📌 Kanban To-Do List
+
+Planned features:
+
+- Drag-and-drop task organization  
+- Persistent data with local storage  
