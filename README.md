@@ -21,7 +21,7 @@ Features:
 - Visual check of completed tasks
 
 
-### 🗂️ Kanban Task Manager (Angular 20 + Tailwind CSS)
+### 🗂️ Kanban Task Manager
 Features:
 
 - Kanban board with 4 columns: Not Started, In Progress, Cancelled, Completed
