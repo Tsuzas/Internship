@@ -1,0 +1,178 @@
+<!-- Big Div with grid -->
+<div
+  cdkDropListGroup
+  class="big-div"
+>
+  <!-- Not Started Column -->
+  <div class="example-container">
+  <h3>
+    <span  class="bg-gray-300">
+      Not Started
+    </span>
+  </h3>
+  <div
+    cdkDropList
+    id="notStarted"
+    [cdkDropListData]="notStarted"
+    [cdkDropListConnectedTo]="['abandoned','inProgress','completed']"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let task of notStarted; let i = index" cdkDrag
+     class="bg-white px-4 py-3 border rounded-md shadow mt-1 mb-1">
+      <h3 class="task-title">{{ task.title }}</h3>
+      <p>{{ task.description }}</p>
+       <img [src]="task.image" class="w-full rounded border-spacing-7
+       "/>
+        <button
+          class="border rounded-[8px] mt-2 bg-red-300 hover:bg-red-400 py-1 px-4"
+          (click)="removeTask(task)">
+          Remover
+        </button>
+        <button
+          class="border rounded-[8px] mt-2 bg-green-300 hover:bg-green-400 py-1 px-4"
+          (click)="openEditModal(task)">
+          Editar
+        </button>
+    </div>
+  </div>
+</div>
+
+<div class="example-container">
+  <h3>
+    <span class="bg-purple-200">
+      In progress
+    </span>
+  </h3>
+  <div
+    cdkDropList
+    id="inProgress"
+    [cdkDropListData]="inProgress"
+    [cdkDropListConnectedTo]="['notStarted','abandoned','completed']"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let task of inProgress; let i = index" cdkDrag
+     class="bg-white px-4 py-3 border rounded-md shadow mt-1 mb-1">
+      <h3 class="task-title">{{ task.title }}</h3>
+      <p>{{ task.description }}</p>
+       <img [src]="task.image" class="w-full rounded border" />
+               <button
+          class="border rounded-[8px] mt-2 bg-red-300 hover:bg-red-400 py-1 px-4"
+          (click)="removeTask(task)">
+          Remover
+        </button>
+        <button
+          class="border rounded-[8px] mt-2 bg-green-300 hover:bg-green-400 py-1 px-4"
+          (click)="openEditModal(task)">
+          Editar
+        </button>
+    </div>
+  </div>
+</div>
+
+  <!-- Completed Column -->
+  <div>
+    <h3>
+      <span class="bg-green-100"> Completed </span>
+    </h3>
+    <div
+    cdkDropList
+    id="completed"
+    [cdkDropListData]="completed"
+    [cdkDropListConnectedTo]="['notStarted','inProgress','abandoned']"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let task of completed; let i = index" cdkDrag
+    class="bg-white px-4 py-3 border rounded-md shadow mt-1 mb-1">
+      <h3 class="task-title">{{ task.title }}</h3>
+      <p>{{ task.description }}</p>
+      <img [src]="task.image" class="w-full rounded border" />
+              <button
+          class="border rounded-[8px] mt-2 bg-red-300 hover:bg-red-400 py-1 px-4"
+          (click)="removeTask(task)">
+          Remover
+        </button>
+        <button
+          class="border rounded-[8px] mt-2 bg-green-300 hover:bg-green-400 py-1 px-4"
+          (click)="openEditModal(task)">
+          Editar
+        </button>
+    </div>
+  </div>
+  </div>
+
+  <!-- Abandoned Column -->
+  <div>
+    <h3>
+      <span class="bg-red-100"> Abandoned </span>
+    </h3>
+      <div
+    cdkDropList
+    id="abandoned"
+    [cdkDropListData]="abandoned"
+    [cdkDropListConnectedTo]="['notStarted','inProgress','completed']"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let task of abandoned; let i = index" cdkDrag
+    class="bg-white px-4 py-3 border rounded-md shadow mt-1 mb-1">
+      <h3 class="task-title">{{ task.title }}</h3>
+      <p>{{ task.description }}</p>
+       <img [src]="task.image" class="w-full rounded border" />
+               <button
+          class="border rounded-[8px] mt-2 bg-red-300 hover:bg-red-400 py-1 px-4"
+          (click)="removeTask(task)">
+          Remover
+        </button>
+        <button
+          class="border rounded-[8px] mt-2 bg-green-300 hover:bg-green-400 py-1 px-4"
+          (click)="openEditModal(task)">
+          Editar
+        </button>
+    </div>
+  </div>
+  </div>
+
+  <!-- Modal de Edição -->
+<div
+    *ngIf="isEditing"
+    class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50"
+  >
+    <div class="bg-white p-6 rounded shadow-md w-[90%] max-w-md">
+      <h2 class="text-lg font-semibold mb-2">Editar Tarefa</h2>
+      <label>Título</label>
+      <input
+        type="text"
+        [(ngModel)]="editTask.title"
+        class="border w-full p-1 mb-2 rounded"
+      />
+
+      <label>Descrição</label>
+      <textarea
+        [(ngModel)]="editTask.description"
+        class="border w-full p-1 mb-2 rounded"
+      >
+      </textarea>
+
+      <label>Imagem (URL)</label>
+      <input
+        type="text"
+        [(ngModel)]="editTask.image"
+        class="border w-full p-1 mb-2 rounded"
+      />
+
+      <div class="flex justify-end gap-2 mt-4">
+        <button
+          class="bg-gray-300 px-4 py-1 rounded hover:bg-gray-400"
+          (click)="cancelEdit()"
+        >
+          Cancelar
+        </button>
+        <button
+          class="bg-blue-500 px-4 py-1 rounded text-white hover:bg-blue-600"
+          (click)="saveEdit()"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+</div> 
+</div>

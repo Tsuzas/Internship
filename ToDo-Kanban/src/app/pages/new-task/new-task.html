@@ -1,0 +1,67 @@
+<!-- Header i guess -->
+<p
+  class="text-left px-11 mt-10 w-full max-w-md text-blue-500 text-1xl hover:underline hover:cursor-pointer"
+  [routerLink]="['']"
+  routerLinkActive="router-link-active"
+>
+  Go back
+</p>
+<h1 class="text-5xl font-bold text-left px-10 py-20 -mt-20 w-full">Tasks</h1>
+<p class="text-left px-11 py-10 -mt-28 w-full text-gray-500 text-1xl">
+  Add task!
+</p>
+
+<!-- Big Div with grid -->
+<div id="test" class="bg-gray-100 p-4 rounded-[10px] max-w-[115rem] mx-auto h-[70vh]">
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <!-- TITLE -->
+    <label class="p-newTask">
+      Title
+      <input
+        type="text"
+        class="title-newTask"
+        placeholder="Write your task here"
+        formControlName="title"
+      />
+    </label>
+
+    <!-- DESCRIPTION -->
+    <label class="p-newTask">
+      Description
+      <textarea
+        class="description-newTask"
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+    </label>
+
+    <div class="flex">
+      <!-- IMAGE -->
+      <label class="p-newTask">
+        <p class="p-image-newTask">Image</p>
+        <input
+          type="file"
+          name=""
+          id="fileUpload"
+          class="input-file-newTask"
+          hidden
+          (change)="submitImage($event)"
+        />
+        <label for="fileUpload" class="selectImage">Select Image</label>
+      </label>
+
+      <!-- BUTTONI -->
+      <button
+        class="border rounded-[8px] bg-green-500/30 hover:bg-green-700/40 px-4 py-2 mt-11 ml-auto font-medium"
+        type="submit">
+        Save Task
+      </button>
+    </div>
+        <img
+          *ngIf="imageSrc"
+          [src]="imageSrc"
+          alt="Preview"
+          class="imgPreview"
+        />
+  </form>
+</div>
